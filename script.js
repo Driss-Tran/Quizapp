@@ -1,6 +1,6 @@
 const quizData = [
     {
-        question : 'How old is Phat?',
+        question : 'Phát bao nhiêu tuổi nè?',
         a: '18',
         b: '19',
         c: '20',
@@ -8,35 +8,35 @@ const quizData = [
         correct: 'b',
     },
     {
-        question: 'What is the most used programming language in 2022?',
-        a: 'Java',
-        b: 'Javascript',
-        c: 'Python',
-        d: 'C',
+        question: 'Phát học ngành gì nè?',
+        a: 'Kế toán',
+        b: 'Kĩ thuật hóa học',
+        c: 'Công nghệ thông tin',
+        d: 'Quản trị kinh doanh',
         correct: 'c'
     },
     {
-        question: 'where is the best place to live in the world ?',
-        a:'Denmark',
-        b:'VietNam',
-        c:'Korea',
-        d:'Canada',
+        question: 'Phát thích chơi môn thể thao nào nhất ?',
+        a:'Bơi lội',
+        b:'Bóng bàn',
+        c:'Cầu lông',
+        d:'Bóng rổ',
         correct: 'd'
     },
     {
-        question: 'What does HTML stand for?',
-        a:'Hypertext Markup Language',
-        b:'Cascading Style Sheet',
-        c:'Hyper Transfer Mark Length',
-        d:'Another answer',
+        question: 'Người yêu cũ gần đây nhất là ai nè (này trả lời giữ kín nhoa)?',
+        a:'Nhã Linh',
+        b:'Anh Thy',
+        c:'Mỹ Anh',
+        d:'Không phải những bạn kể trên',
         correct: 'a',
     },
     {
-        question: 'What year was Javascript launched ?',
-        a:'1996',
-        b:'1994',
-        c:'1995',
-        d:'None of the above',
+        question: 'Phát đang học trường nào nè ?',
+        a:'Công nghệ thông tin - ĐH Quốc Gia',
+        b:'Đại Học Kinh Tế',
+        c:'Đại Học Văn Lang',
+        d:'Đại học Tôn Đức Thắng',
         correct: 'd'
     }
 ];
@@ -105,8 +105,18 @@ submitBtn.addEventListener('click',()=>{
         else
         {
             submitBtn.style.display = "none";
-            quiz.innerHTML = `<h2>You answered correctly at ${score}/${quizData.length} questions.</h2>
-            <button onclick = "location.reload()">Reload</button>`
+            if(score<quizData.length)
+            {
+                quiz.innerHTML = `<h2>Bạn iu đã trả lời đúng được ${score}/${quizData.length} câu hỏi. Tuy không được trọn điểm 
+                nhưng chúng ta có thể tìm hiểu thêm mà đúng hông nè. Bạn có thể làm lại cũng được nè </h2>
+                <button onclick = "location.reload()">Reload</button>
+                `
+            }
+            else if(score==quizData.length)
+            {
+                quiz.innerHTML = `<h2>Bạn iu đã trả lời đúng được ${score}/${quizData.length} câu hỏi nè. Quá hiểu tui lun
+                xứng đáng làm người yêu tui . <3 </h2>`
+            }
 
         }
     }
